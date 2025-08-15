@@ -44,7 +44,7 @@ $(function () {
     });
   }
 
-  let cityFromIpUrl = "http://ip-api.com/json/?fields=city,lat,lon";
+  let cityFromIpUrl = "https://ip-api.com/json/?fields=city,lat,lon";
 
   $.getJSON(cityFromIpUrl, function (location) {
     let city = location.city;
