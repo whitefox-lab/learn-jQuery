@@ -2,88 +2,40 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>jQuery шпаргалка</title>
+    <title>Tail Weather</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        h2 { margin-top: 40px; }
-        .done { text-decoration: line-through; color: gray; }
-        #gallery { display: flex; gap: 10px; margin-top: 10px; }
-        .thumb { width: 80px; height: 50px; cursor: pointer; object-fit: cover; border: 1px solid #ccc; }
-        #mainImg { display: block; width: 300px; margin-top: 10px; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 5px; }
-        button { cursor: pointer; }
-        #usersList li { border-bottom: 1px solid #ddd; padding: 5px 0; }
-    </style>
+    <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ff6900">
 </head>
 <body>
-
-<h1>jQuery мини-проекты</h1>
-<!-- ======= Сгенерировано ChatGPT ======= -->
-<!-- ======= Удалить после разработки своего проекта ======= -->
-
-<!-- ======= 1. To-Do Список ======= -->
-<h2>1. To-Do Список</h2>
-<input type="text" id="taskInput" placeholder="Новая задача">
-<button id="addBtn">Добавить</button>
-<ul id="taskList"></ul>
-
-<!-- ======= 2. Галерея ======= -->
-<h2>2. Галерея с эффектами</h2>
-<div id="gallery">
-    <img src="https://picsum.photos/id/1015/80/50" class="thumb">
-    <img src="https://picsum.photos/id/1016/80/50" class="thumb">
-    <img src="https://picsum.photos/id/1018/80/50" class="thumb">
-</div>
-<img src="https://picsum.photos/id/1015/300/200" id="mainImg">
-
-<!-- ======= 3. AJAX ======= -->
-<h2>3. Загрузка пользователей через AJAX</h2>
-<button id="loadUsers">Показать пользователей</button>
-<ul id="usersList"></ul>
-
-<script>
-$(function() {
-
-    /* ======= To-Do Список ======= */
-    $("#addBtn").click(function() {
-        let task = $("#taskInput").val();
-        if(task) {
-            $("#taskList").append(`<li>${task} <button class="del">X</button></li>`);
-            $("#taskInput").val("");
-        }
-    });
-
-    $("#taskList").on("click", ".del", function() {
-        $(this).parent().remove();
-    });
-
-    $("#taskList").on("click", "li", function() {
-        $(this).toggleClass("done");
-    });
-
-    /* ======= Галерея с эффектами ======= */
-    $(".thumb").click(function() {
-        let src = $(this).attr("src").replace("/80/50", "/300/200");
-        $("#mainImg").fadeOut(function() {
-            $(this).attr("src", src).fadeIn();
-        });
-    });
-
-    /* ======= AJAX ======= */
-    $("#loadUsers").click(function() {
-        // Пример с локальным JSON (можно заменить на API)
-        $.get("https://jsonplaceholder.typicode.com/users", function(users) {
-            $("#usersList").empty();
-            users.forEach(u => {
-                $("#usersList").append(`<li>${u.name} — ${u.email}</li>`);
-            });
-        });
-    });
-
-});
-</script>
-
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div class="shadowbox">
+            <img src="/assets/shadowbox/L5.svg" alt="" class="layer"/>
+            <img src="/assets/shadowbox/L4.svg" alt="" class="layer"/>
+            <img src="/assets/shadowbox/L3.svg" alt="" class="layer"/>
+            <img src="/assets/shadowbox/L2.svg" alt="" class="layer"/>
+            <img src="/assets/shadowbox/L1.svg" alt="" class="layer"/>
+            <img src="/assets/shadowbox/L0.svg" alt="" class="layer layertop"/>
+    </div>
+    <div class="widget">
+        <div class="logo">
+            <img src="/assets/icons/favicon.ico" alt="" aria-hidden="true">
+            <h1>Tail Weather</h1>
+        </div>
+        <input type="text" id="apiKeyInput" title="Смотри README в корне проекта" placeholder="Вставьте сюда API ключ">
+        <div class="weather-search">
+            <input type="text" id="city" placeholder="Введите город">
+            <button id="getWeather">Узнать погоду</button>
+        </div>
+        <div class="weather">Заполните поля</div>
+    </div>
+<script src="script.js"></script>
 </body>
 </html>

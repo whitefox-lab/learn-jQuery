@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Ms+Madi&display=swap');
+
+:root {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.shadowbox {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    pointer-events: none;
+}
+
+.layer {
+    position: absolute;
+    top: 53%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+}
+
+.widget {
+    position: absolute;
+    top: 8vh;
+    left: 8vw;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 14px;
+    justify-self: center;
+    border: 1.5px solid #ff6900;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding-bottom: 10px;
+}
+
+.logo img {
+    height: 32px;
+}
+
+.logo h1{
+    font-family:  "Ms Madi", cursive;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    font-size: 32px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+#apiKeyInput {
+    border: none;
+    width: auto;
+    outline: none;
+    background-color: #222;
+    border: 1.5px solid #555;
+    border-radius: 10px;
+    color: #3d3d3d;
+    font-size: 12px;
+    text-align: center;
+    padding: 4px 15px;
+    caret-color: #ff6900;
+}
+
+.weather-search {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+    width: auto;
+}
+
+.weather-search input {
+    border: none;
+    width: 220px;
+    outline: none;
+    background-color: #222;
+    border: 1.5px solid #555;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 4px 15px;
+    caret-color: #ff6900;
+}
+
+/* Chrome, Safari, Edge */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #222 inset; /* заливает фон */
+  -webkit-text-fill-color: white; /* текст белый */
+  transition: background-color 5000s ease-in-out 0s; /* предотвращает мерцание */
+}
+
+/* Firefox */
+input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px #222 inset;
+  -moz-text-fill-color: white;
+}
+
+.weather-search button {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    background-color: #ff6900;
+    padding: 4px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-weight: 400;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.weather-search button:hover {
+    background: #e55a00;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-items: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 10px;
+}
+
+.weathercity {
+    font-size: 30px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.weatherdate {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.weathertemp {
+    margin: 0;
+    font-size: 64px;
+}
+
+.weatherdescription {
+    margin: 0;
+    font-size: 18px;
+}
+
+.weatherhumidity {
+    margin: 0;
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fff;
+  border-top: 5px solid #555;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
